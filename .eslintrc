@@ -1,8 +1,10 @@
 {
   "extends": ["airbnb-typescript", "prettier"],
   "plugins": ["prettier"],
+  "ignorePatterns": ["serviceWorker.ts"],
   "rules": {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "no-param-reassign": ["error", { props: true, ignorePropertyModificationsFor: ["state"] }]
   },
   "parserOptions": {
     "project": ["tsconfig.json"]
