@@ -6,8 +6,8 @@ import {
   AppListColumn,
   AppDetailSection,
 } from "./App.style";
-import ListPost from "../features/posts/ListPost";
-import DetailPost from "../features/posts/DetailPost";
+import PostList from "../features/posts/PostList";
+import PostDetails from "../features/posts/PostDetails";
 
 import "bulma/css/bulma.css";
 
@@ -19,11 +19,10 @@ function App() {
       </AppHeader>
       <div className="columns">
         <AppListColumn className="column is-one-third">
-          <ListPost />
-          <ListPost />
+          <PostList />
         </AppListColumn>
         <AppDetailSection className="column">
-          <DetailPost />
+          <PostDetails />
         </AppDetailSection>
       </div>
     </AppContainer>
