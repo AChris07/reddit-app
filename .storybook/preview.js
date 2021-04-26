@@ -1,3 +1,8 @@
+import { ThemeProvider } from "@emotion/react";
+import { addDecorator } from "@storybook/react";
+
+import theme from "../src/theme";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -7,3 +12,10 @@ export const parameters = {
     },
   },
 };
+
+// Theme decorator
+addDecorator((Story) => (
+  <ThemeProvider theme={theme}>
+    <Story />
+  </ThemeProvider>
+));

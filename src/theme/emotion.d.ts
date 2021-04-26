@@ -7,6 +7,10 @@ declare module "@emotion/react" {
       backgroundSecondary: string;
       primary: string;
       secondary: string;
+      tertiary: string;
+    };
+    typography: {
+      mainFont: string;
     };
   }
 }

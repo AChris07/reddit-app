@@ -1,7 +1,7 @@
 {
   "extends": ["airbnb-typescript", "prettier"],
   "plugins": ["prettier"],
-  "ignorePatterns": ["serviceWorker.ts"],
+  "ignorePatterns": ["serviceWorker.ts", "*.stories.tsx"],
   "rules": {
     "prettier/prettier": ["error"],
     "no-param-reassign": ["error", { props: true, ignorePropertyModificationsFor: ["state"] }]

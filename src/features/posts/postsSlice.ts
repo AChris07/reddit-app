@@ -1,15 +1,15 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Post } from "../../types/posts";
+import { PostStatusEnum, Post } from "../../types/posts";
 import getTopPosts from "../../api/reddit";
 
 export interface PostsState {
-  status: "idle" | "loading" | "failed";
+  status: PostStatusEnum;
   list: Post[];
   selected: Post | null;
 }
 
 const initialState: PostsState = {
-  status: "idle",
+  status: PostStatusEnum.IDLE,
   list: [],
   selected: null,
 };
@@ -37,17 +37,17 @@ export const postsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTopPosts.pending, (state) => {
-        state.status = "loading";
+        state.status = PostStatusEnum.LOADING;
       })
       .addCase(
         fetchTopPosts.fulfilled,
         (state, action: PayloadAction<Post[]>) => {
-          state.status = "idle";
+          state.status = PostStatusEnum.IDLE;
           state.list = action.payload;
         }
       )
       .addCase(fetchTopPosts.rejected, (state) => {
-        state.status = "failed";
+        state.status = PostStatusEnum.FAILED;
       });
   },
 });

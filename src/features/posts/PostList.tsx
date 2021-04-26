@@ -1,35 +1,63 @@
 import React from "react";
-import { Post } from "../../types/posts";
+import {
+  PostListContainer,
+  PostElementContainer,
+  PostElementHeader,
+  PostElementBody,
+  PostElementFooter,
+  PostAuthor,
+  PostEntryDate,
+  PostTitle,
+  PostCommentNumber,
+} from "./Posts.style";
+import Loader from "../../common/Loader";
+import IconButton from "../../common/IconButton";
+import UnreadIcon from "../../common/UnreadIcon";
+import { PostStatusEnum, Post } from "../../types/posts";
+import dates from "../../utils/dates";
 
-type Props = {
+export type Props = {
+  status: PostStatusEnum;
   posts: Post[];
 };
 
-type ElementProps = {
+export type ElementProps = {
   data: Post;
 };
 
-function PostListElement({ data }: ElementProps) {
+function PostElement({ data }: ElementProps) {
   return (
-    <li key={data.id}>
-      <div>
-        <h2>{data.title}</h2>
-        <h3>{data.entryDate}</h3>
+    <PostElementContainer key={data.id}>
+      <PostElementHeader>
+        <UnreadIcon />
+        <PostAuthor>{data.author}</PostAuthor>
+        <PostEntryDate>{dates.getRelativeDate(data.entryDate)}</PostEntryDate>
+      </PostElementHeader>
+      <PostElementBody>
         <img src={data.thumbnail} alt="" />
-        <span>{data.numComments} comments</span>
-        <button type="button">Dismiss Post</button>
-      </div>
-    </li>
+        <PostTitle>{data.title}</PostTitle>
+      </PostElementBody>
+      <PostElementFooter>
+        <IconButton icon="fa-times-circle" text="Dismiss Post" />
+        <PostCommentNumber>{data.numComments} comments</PostCommentNumber>
+      </PostElementFooter>
+    </PostElementContainer>
   );
 }
 
-function PostList({ posts }: Props) {
+function PostList({ status, posts }: Props) {
+  const PostListElements = posts.length ? (
+    posts.map((post) => <PostElement data={post} />)
+  ) : (
+    <PostElementContainer key="empty-message">
+      <h3>No posts available</h3>
+    </PostElementContainer>
+  );
+
   return (
-    <ul>
-      {posts.map((post) => (
-        <PostListElement data={post} />
-      ))}
-    </ul>
+    <PostListContainer>
+      {status === PostStatusEnum.LOADING ? <Loader /> : PostListElements}
+    </PostListContainer>
   );
 }
 

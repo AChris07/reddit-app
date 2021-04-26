@@ -3,6 +3,10 @@ export default {
     backgroundPrimary: "#030303",
     backgroundSecondary: "#1A1A1B",
     primary: "#D7DADC",
-    secondary: "#343536",
+    secondary: "#A2A5A8",
+    tertiary: "#FFA701",
+  },
+  typography: {
+    mainFont: "IBM Plex Sans, sans-serif",
   },
 };
