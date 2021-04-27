@@ -37,6 +37,14 @@ export const PostElementFooter = styled(
   justify-content: space-around;
 `;
 
+export const PostDetailsContainer = styled.section`
+  background-color: ${(props) => props.theme.colors.backgroundSecondary};
+  color: ${(props) => props.theme.colors.primary};
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+`;
+
 export const PostAuthor = styled.h2`
   margin-left: 0.5em;
   margin-right: 1em;
@@ -52,4 +60,8 @@ export const PostTitle = styled.h4`
 
 export const PostCommentNumber = styled.span`
   color: ${(props) => props.theme.colors.tertiary};
+`;
+
+export const PostDetailsAuthor = styled.h2`
+  margin-bottom: 15px;
 `;
