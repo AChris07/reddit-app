@@ -9,8 +9,6 @@ import {
 import PostList from "../features/posts/PostList";
 import PostDetails from "../features/posts/PostDetails";
 
-import "bulma/css/bulma.css";
-
 function App() {
   return (
     <AppContainer>
