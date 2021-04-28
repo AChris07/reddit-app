@@ -4,7 +4,8 @@
   "ignorePatterns": ["serviceWorker.ts", "*.stories.tsx"],
   "rules": {
     "prettier/prettier": ["error"],
-    "no-param-reassign": ["error", { props: true, ignorePropertyModificationsFor: ["state"] }]
+    "no-param-reassign": ["error", { props: true, ignorePropertyModificationsFor: ["state"] }],
+    "import/no-cycle": ["off"]
   },
   "parserOptions": {
     "project": ["tsconfig.json"]

@@ -17,10 +17,6 @@ export const AppHeader = styled.header`
   text-align: center;
 `;
 
-export const AppListColumn = styled.section`
-  border: 1px solid red;
-`;
+export const AppListColumn = styled.section``;
 
-export const AppDetailSection = styled.section`
-  border: 1px solid red;
-`;
+export const AppDetailSection = styled.section``;

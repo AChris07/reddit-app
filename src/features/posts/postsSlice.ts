@@ -1,17 +1,18 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { PostStatusEnum, Post } from "../../types/posts";
 import getTopPosts from "../../api/reddit";
+import { RootState } from "../../app/store";
 
 export interface PostsState {
   status: PostStatusEnum;
   list: Post[];
-  selected: Post | null;
+  selected?: Post;
 }
 
 const initialState: PostsState = {
   status: PostStatusEnum.IDLE,
   list: [],
-  selected: null,
+  selected: undefined,
 };
 
 export const fetchTopPosts = createAsyncThunk(
@@ -51,5 +52,9 @@ export const postsSlice = createSlice({
       });
   },
 });
+
+export const selectPostStatus = (state: RootState) => state.posts.status;
+export const selectPosts = (state: RootState) => state.posts.list;
+export const selectPostSelected = (state: RootState) => state.posts.selected;
 
 export default postsSlice.reducer;
