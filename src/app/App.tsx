@@ -11,17 +11,18 @@ import PostList from "../features/posts/PostList";
 import PostDetails from "../features/posts/PostDetails";
 import {
   fetchTopPosts,
-  selectPosts,
-  selectPostStatus,
-  selectPostSelected,
+  selectPost,
+  getPosts,
+  getPostStatus,
+  getPostSelected,
 } from "../features/posts/postsSlice";
 
 function App() {
   const dispatch = useAppDispatch();
 
-  const posts = useAppSelector(selectPosts);
-  const status = useAppSelector(selectPostStatus);
-  const selected = useAppSelector(selectPostSelected);
+  const posts = useAppSelector(getPosts);
+  const status = useAppSelector(getPostStatus);
+  const selected = useAppSelector(getPostSelected);
 
   useEffect(() => {
     dispatch(fetchTopPosts());
@@ -34,7 +35,11 @@ function App() {
       </AppHeader>
       <div className="columns">
         <AppListColumn className="column is-one-third">
-          <PostList status={status} posts={posts} />
+          <PostList
+            status={status}
+            posts={posts}
+            onSelect={(id) => dispatch(selectPost(id))}
+          />
         </AppListColumn>
         <AppDetailSection className="column">
           <PostDetails post={selected} />

@@ -7,9 +7,10 @@ import { Post, PostStatusEnum } from "../types/posts";
 export default {
   title: "Components/PostList",
   component: PostList,
+  argTypes: { onSelect: { action: "clicked" } },
 } as Meta;
 
-const generateMockPosts = (amount: number): Post[] =>
+const generateMockPosts = (amount: number, isRead = false): Post[] =>
   Array.from(
     { length: amount },
     (x, i): Post => ({
@@ -19,7 +20,7 @@ const generateMockPosts = (amount: number): Post[] =>
       author: `Mock Author ${i + 1}`,
       entryDate: 1619382797,
       numComments: (i + 1) * 100,
-      isRead: false,
+      isRead,
     })
   );
 
@@ -41,4 +42,10 @@ export const LoadedState = Template.bind({});
 LoadedState.args = {
   status: PostStatusEnum.IDLE,
   posts: generateMockPosts(3),
+};
+
+export const ReadPostState = Template.bind({});
+ReadPostState.args = {
+  status: PostStatusEnum.IDLE,
+  posts: [...generateMockPosts(1, true), ...generateMockPosts(2)],
 };
