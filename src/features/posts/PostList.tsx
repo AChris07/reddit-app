@@ -67,6 +67,7 @@ function PostList({ status, posts, onSelect, onDismiss, onDismissAll }: Props) {
         <PostElement data={post} onSelect={onSelect} onDismiss={onDismiss} />
       ))}
       <IconButton
+        key="dismiss-all"
         className="is-fullwidth"
         css={css`
           position: sticky;
