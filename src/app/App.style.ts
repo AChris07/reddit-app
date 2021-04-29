@@ -16,10 +16,11 @@ export const AppHeader = styled.header`
   padding: 1em 1.5em;
   margin-bottom: 1em;
   text-align: center;
+  height: 10vh;
 `;
 
 export const AppListColumn = styled.section`
-  height: 100vh;
+  height: 90vh;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: ${(props) => {

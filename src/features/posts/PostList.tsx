@@ -1,4 +1,7 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
 import React from "react";
+import { jsx, css } from "@emotion/react";
 import {
   PostListContainer,
   PostElementContainer,
@@ -21,6 +24,7 @@ export type Props = {
   posts: Post[];
   onSelect: (id: string) => void;
   onDismiss: (id: string) => void;
+  onDismissAll: () => void;
 };
 
 export type ElementProps = {
@@ -56,11 +60,22 @@ function PostElement({ data, onSelect, onDismiss }: ElementProps) {
   );
 }
 
-function PostList({ status, posts, onSelect, onDismiss }: Props) {
+function PostList({ status, posts, onSelect, onDismiss, onDismissAll }: Props) {
   const PostListElements = posts.length ? (
-    posts.map((post) => (
-      <PostElement data={post} onSelect={onSelect} onDismiss={onDismiss} />
-    ))
+    <React.Fragment>
+      {posts.map((post) => (
+        <PostElement data={post} onSelect={onSelect} onDismiss={onDismiss} />
+      ))}
+      <IconButton
+        className="is-fullwidth"
+        css={css`
+          position: sticky;
+          bottom: 15px;
+        `}
+        onClick={onDismissAll}
+        text="Dismiss All"
+      />
+    </React.Fragment>
   ) : (
     <PostElementContainer key="empty-message">
       <h3>No posts available</h3>

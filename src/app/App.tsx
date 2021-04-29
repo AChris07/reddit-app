@@ -16,6 +16,7 @@ import {
   fetchTopPosts,
   selectPost,
   dismissPost,
+  dismissAll,
   getPosts,
   getPostStatus,
   getPostSelected,
@@ -53,6 +54,7 @@ function App() {
             posts={posts}
             onSelect={(id: string) => dispatch(selectPost(id))}
             onDismiss={(id: string) => dispatch(dismissPost(id))}
+            onDismissAll={() => dispatch(dismissAll())}
           />
         </AppListColumn>
       </div>

@@ -62,6 +62,9 @@ export const postsSlice = createSlice({
     dismissPost: (state, action: PayloadAction<string>) => {
       state.ids = state.ids.filter((id) => id !== action.payload);
     },
+    dismissAll: (state) => {
+      state.ids = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -82,7 +85,7 @@ export const postsSlice = createSlice({
   },
 });
 
-export const { selectPost, dismissPost } = postsSlice.actions;
+export const { selectPost, dismissPost, dismissAll } = postsSlice.actions;
 
 export const getPostStatus = (state: RootState) => state.posts.status;
 export const getPosts = (state: RootState) => {

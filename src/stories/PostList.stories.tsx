@@ -10,6 +10,7 @@ export default {
   argTypes: {
     onSelect: { action: "clicked" },
     onDismiss: { action: "clicked" },
+    onDismissAll: { action: "clicked" },
   },
 } as Meta;
 
