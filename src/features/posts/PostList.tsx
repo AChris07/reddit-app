@@ -2,6 +2,7 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx, css } from "@emotion/react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import {
   PostListContainer,
   PostElementContainer,
@@ -35,7 +36,7 @@ export type ElementProps = {
 
 function PostElement({ data, onSelect, onDismiss }: ElementProps) {
   return (
-    <PostElementContainer key={data.id} onClick={() => onSelect(data.id)}>
+    <PostElementContainer onClick={() => onSelect(data.id)}>
       <PostElementHeader>
         {!data.isRead && <UnreadIcon />}
         <PostAuthor>{data.author}</PostAuthor>
@@ -63,9 +64,17 @@ function PostElement({ data, onSelect, onDismiss }: ElementProps) {
 function PostList({ status, posts, onSelect, onDismiss, onDismissAll }: Props) {
   const PostListElements = posts.length ? (
     <React.Fragment>
-      {posts.map((post) => (
-        <PostElement data={post} onSelect={onSelect} onDismiss={onDismiss} />
-      ))}
+      <TransitionGroup>
+        {posts.map((post) => (
+          <CSSTransition key={post.id} timeout={200} classNames="post">
+            <PostElement
+              data={post}
+              onSelect={onSelect}
+              onDismiss={onDismiss}
+            />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
       <IconButton
         key="dismiss-all"
         className="is-fullwidth"

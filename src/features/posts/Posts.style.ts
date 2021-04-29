@@ -14,6 +14,20 @@ export const PostElementContainer = styled.li`
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 10px;
+
+  &.post-exit {
+    opacity: 1;
+    max-height: 500px;
+  }
+
+  &.post-exit-active {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+    margin-bottom: 0;
+    transition: max-height 200ms, opacity 200ms ease-in, padding 200ms,
+      margin-bottom 200ms;
+  }
 `;
 
 const PostElementSection = styled.section`
