@@ -1,14 +1,14 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import { jsx, Theme } from "@emotion/react";
 
-export type Props = {
+export interface Props extends HTMLAttributes<HTMLElement> {
   icon?: string;
   text?: React.ReactNode;
-};
+}
 
-function IconButton({ icon, text }: Props) {
+function IconButton({ icon, text, ...props }: Props) {
   const iconElement = icon && (
     <span className="icon">
       <i className={`fas ${icon}`} />
@@ -25,6 +25,7 @@ function IconButton({ icon, text }: Props) {
         color: theme.colors.tertiary,
         border: "none",
       })}
+      {...props}
     >
       {iconElement}
       {textElement}

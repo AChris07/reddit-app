@@ -20,14 +20,16 @@ export type Props = {
   status: PostStatusEnum;
   posts: Post[];
   onSelect: (id: string) => void;
+  onDismiss: (id: string) => void;
 };
 
 export type ElementProps = {
   data: Post;
   onSelect: (id: string) => void;
+  onDismiss: (id: string) => void;
 };
 
-function PostElement({ data, onSelect }: ElementProps) {
+function PostElement({ data, onSelect, onDismiss }: ElementProps) {
   return (
     <PostElementContainer key={data.id} onClick={() => onSelect(data.id)}>
       <PostElementHeader>
@@ -40,16 +42,25 @@ function PostElement({ data, onSelect }: ElementProps) {
         <PostTitle>{data.title}</PostTitle>
       </PostElementBody>
       <PostElementFooter>
-        <IconButton icon="fa-times-circle" text="Dismiss Post" />
+        <IconButton
+          icon="fa-times-circle"
+          text="Dismiss Post"
+          onClick={(evt: React.MouseEvent) => {
+            onDismiss(data.id);
+            evt.stopPropagation();
+          }}
+        />
         <PostCommentNumber>{data.numComments} comments</PostCommentNumber>
       </PostElementFooter>
     </PostElementContainer>
   );
 }
 
-function PostList({ status, posts, onSelect }: Props) {
+function PostList({ status, posts, onSelect, onDismiss }: Props) {
   const PostListElements = posts.length ? (
-    posts.map((post) => <PostElement data={post} onSelect={onSelect} />)
+    posts.map((post) => (
+      <PostElement data={post} onSelect={onSelect} onDismiss={onDismiss} />
+    ))
   ) : (
     <PostElementContainer key="empty-message">
       <h3>No posts available</h3>

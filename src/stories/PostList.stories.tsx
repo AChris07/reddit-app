@@ -7,7 +7,10 @@ import { Post, PostStatusEnum } from "../types/posts";
 export default {
   title: "Components/PostList",
   component: PostList,
-  argTypes: { onSelect: { action: "clicked" } },
+  argTypes: {
+    onSelect: { action: "clicked" },
+    onDismiss: { action: "clicked" },
+  },
 } as Meta;
 
 const generateMockPosts = (amount: number, isRead = false): Post[] =>

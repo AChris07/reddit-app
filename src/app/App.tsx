@@ -12,6 +12,7 @@ import PostDetails from "../features/posts/PostDetails";
 import {
   fetchTopPosts,
   selectPost,
+  dismissPost,
   getPosts,
   getPostStatus,
   getPostSelected,
@@ -39,6 +40,7 @@ function App() {
             status={status}
             posts={posts}
             onSelect={(id) => dispatch(selectPost(id))}
+            onDismiss={(id) => dispatch(dismissPost(id))}
           />
         </AppListColumn>
         <AppDetailSection className="column">
