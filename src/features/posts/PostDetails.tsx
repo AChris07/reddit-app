@@ -1,6 +1,7 @@
 import React from "react";
 import {
   PostDetailsContainer,
+  PostDetailsTitle,
   PostDetailsAuthor,
   PostTitle,
 } from "./Posts.style";
@@ -15,6 +16,7 @@ function PostDetails({ post }: Props) {
     <PostDetailsContainer>
       {post ? (
         <>
+          <PostDetailsTitle>Selected Post</PostDetailsTitle>
           <PostDetailsAuthor>{post.author}</PostDetailsAuthor>
           <img src={post.thumbnail} alt="" />
           <PostTitle>{post.title}</PostTitle>

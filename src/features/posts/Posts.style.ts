@@ -43,6 +43,11 @@ export const PostDetailsContainer = styled.section`
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
+  text-align: center;
+`;
+
+export const PostDetailsTitle = styled.h3`
+  margin-bottom: 1.5em;
 `;
 
 export const PostAuthor = styled.h2`

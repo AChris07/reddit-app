@@ -1,4 +1,7 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
 import React, { useEffect } from "react";
+import { jsx, css } from "@emotion/react";
 import config from "../config";
 import {
   AppContainer,
@@ -34,18 +37,24 @@ function App() {
       <AppHeader>
         <h1>{config.appName}</h1>
       </AppHeader>
-      <div className="columns">
+      <div
+        className="columns"
+        css={css`
+          flex-direction: row-reverse;
+          margin-top: 0;
+        `}
+      >
+        <AppDetailSection className="column">
+          <PostDetails post={selected} />
+        </AppDetailSection>
         <AppListColumn className="column is-one-third">
           <PostList
             status={status}
             posts={posts}
-            onSelect={(id) => dispatch(selectPost(id))}
-            onDismiss={(id) => dispatch(dismissPost(id))}
+            onSelect={(id: string) => dispatch(selectPost(id))}
+            onDismiss={(id: string) => dispatch(dismissPost(id))}
           />
         </AppListColumn>
-        <AppDetailSection className="column">
-          <PostDetails post={selected} />
-        </AppDetailSection>
       </div>
     </AppContainer>
   );
