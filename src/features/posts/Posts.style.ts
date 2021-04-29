@@ -1,3 +1,4 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const PostListContainer = styled.ul`
@@ -6,6 +7,23 @@ export const PostListContainer = styled.ul`
   margin: 0;
   padding: 10px;
   text-align: center;
+`;
+
+const readAnimation = keyframes`
+  from {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+  }
+
+  25% {
+    filter: brightness(120%);
+    -webkit-filter: brightness(120%);
+  }
+
+  to {
+    filter: brightness(70%);
+    -webkit-filter: brightness(70%);
+  }
 `;
 
 export const PostElementContainer = styled.li`
@@ -27,6 +45,14 @@ export const PostElementContainer = styled.li`
     margin-bottom: 0;
     transition: max-height 200ms, opacity 200ms ease-in, padding 200ms,
       margin-bottom 200ms;
+  }
+
+  &.post-read-enter {
+    animation: ${readAnimation} 300ms ease-in-out;
+  }
+
+  &.post-read-enter-done {
+    filter: brightness(70%);
   }
 `;
 

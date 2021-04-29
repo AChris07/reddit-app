@@ -67,11 +67,17 @@ function PostList({ status, posts, onSelect, onDismiss, onDismissAll }: Props) {
       <TransitionGroup>
         {posts.map((post) => (
           <CSSTransition key={post.id} timeout={200} classNames="post">
-            <PostElement
-              data={post}
-              onSelect={onSelect}
-              onDismiss={onDismiss}
-            />
+            <CSSTransition
+              in={post.isRead}
+              timeout={300}
+              classNames="post-read"
+            >
+              <PostElement
+                data={post}
+                onSelect={onSelect}
+                onDismiss={onDismiss}
+              />
+            </CSSTransition>
           </CSSTransition>
         ))}
       </TransitionGroup>
