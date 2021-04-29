@@ -39,7 +39,7 @@ function App() {
         <h1>{config.appName}</h1>
       </AppHeader>
       <div
-        className="columns"
+        className="columns is-desktop"
         css={css`
           flex-direction: row-reverse;
           margin-top: 0;

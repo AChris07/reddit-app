@@ -57,23 +57,26 @@ export const PostElementContainer = styled.li`
 `;
 
 const PostElementSection = styled.section`
-  display: flex;
-  align-items: center;
   position: relative;
-  margin-bottom: 10px;
 `;
 
 export const PostElementBody = styled(PostElementSection)`
+  padding-right: 15px;
+
   ::after {
     content: ">";
     position: absolute;
+    top: 40%;
     right: 15px;
   }
 `;
 export const PostElementHeader = PostElementSection.withComponent("header");
+
 export const PostElementFooter = styled(
   PostElementSection.withComponent("footer")
 )`
+  display: flex;
+  align-items: center;
   justify-content: space-around;
 `;
 
@@ -101,6 +104,10 @@ export const PostEntryDate = styled.h3`
 
 export const PostTitle = styled.h4`
   margin-left: 0.5em;
+`;
+
+export const PostImage = styled.img`
+  margin: auto;
 `;
 
 export const PostCommentNumber = styled.span`

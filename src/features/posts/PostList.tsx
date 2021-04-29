@@ -12,6 +12,7 @@ import {
   PostAuthor,
   PostEntryDate,
   PostTitle,
+  PostImage,
   PostCommentNumber,
 } from "./Posts.style";
 import Loader from "../../common/Loader";
@@ -35,16 +36,24 @@ export type ElementProps = {
 };
 
 function PostElement({ data, onSelect, onDismiss }: ElementProps) {
+  const postImage = data.thumbnail && (
+    <PostImage className="column is-one-third" src={data.thumbnail} alt="" />
+  );
+
   return (
     <PostElementContainer onClick={() => onSelect(data.id)}>
-      <PostElementHeader>
-        {!data.isRead && <UnreadIcon />}
-        <PostAuthor>{data.author}</PostAuthor>
-        <PostEntryDate>{dates.getRelativeDate(data.entryDate)}</PostEntryDate>
+      <PostElementHeader className="columns is-desktop">
+        <div className="column is-inline-flex is-align-items-center">
+          {!data.isRead && <UnreadIcon />}
+          <PostAuthor>{data.author}</PostAuthor>
+        </div>
+        <PostEntryDate className="column">
+          {dates.getRelativeDate(data.entryDate)}
+        </PostEntryDate>
       </PostElementHeader>
-      <PostElementBody>
-        <img src={data.thumbnail} alt="" />
-        <PostTitle>{data.title}</PostTitle>
+      <PostElementBody className="columns is-desktop">
+        {postImage}
+        <PostTitle className="column">{data.title}</PostTitle>
       </PostElementBody>
       <PostElementFooter>
         <IconButton
