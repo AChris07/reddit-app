@@ -13,10 +13,11 @@ export const AppContainer = styled.div`
 export const AppHeader = styled.header`
   background-color: ${(props) => props.theme.colors.backgroundSecondary};
   border: 1.5px solid ${(props) => props.theme.colors.secondary};
+  display: flex;
+  justify-content: space-between;
   padding: 1em 1.5em;
   margin-bottom: 1em;
-  text-align: center;
-  height: 10vh;
+  min-height: 10vh;
 `;
 
 export const AppListColumn = styled.section`

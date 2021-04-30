@@ -10,6 +10,7 @@ import {
   AppDetailSection,
 } from "./App.style";
 import { useAppDispatch, useAppSelector } from "./hooks";
+import IconButton from "../common/IconButton";
 import PostList from "../features/posts/PostList";
 import PostDetails from "../features/posts/PostDetails";
 import {
@@ -35,13 +36,19 @@ function App() {
   const nextToken = useAppSelector(getNextToken);
 
   useEffect(() => {
-    dispatch(fetchInitialPosts());
+    if (!posts.length) {
+      dispatch(fetchInitialPosts());
+    }
   }, []);
 
   return (
     <AppContainer>
       <AppHeader>
         <h1>{config.appName}</h1>
+        <IconButton
+          icon="fa-redo"
+          onClick={() => dispatch(fetchInitialPosts())}
+        />
       </AppHeader>
       <div
         className="columns is-desktop"

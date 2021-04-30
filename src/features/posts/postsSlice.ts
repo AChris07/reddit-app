@@ -79,6 +79,7 @@ export const postsSlice = createSlice({
       state.ids = state.ids.filter((id) => id !== action.payload);
     },
     dismissAll: (state) => {
+      state.nextToken = undefined;
       state.ids = [];
     },
   },
