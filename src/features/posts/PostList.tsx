@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { jsx, css } from "@emotion/react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import {
@@ -25,6 +25,7 @@ export type Props = {
   status: PostStatusEnum;
   posts: Post[];
   onSelect: (id: string) => void;
+  onPaginate: () => void;
   onDismiss: (id: string) => void;
   onDismissAll: () => void;
 };
@@ -70,46 +71,79 @@ function PostElement({ data, onSelect, onDismiss }: ElementProps) {
   );
 }
 
-function PostList({ status, posts, onSelect, onDismiss, onDismissAll }: Props) {
-  const PostListElements = posts.length ? (
-    <React.Fragment>
-      <TransitionGroup>
-        {posts.map((post) => (
-          <CSSTransition key={post.id} timeout={200} classNames="post">
-            <CSSTransition
-              in={post.isRead}
-              timeout={300}
-              classNames="post-read"
-            >
-              <PostElement
-                data={post}
-                onSelect={onSelect}
-                onDismiss={onDismiss}
-              />
-            </CSSTransition>
-          </CSSTransition>
-        ))}
-      </TransitionGroup>
-      <IconButton
-        key="dismiss-all"
-        className="is-fullwidth"
-        css={css`
-          position: sticky;
-          bottom: 15px;
-        `}
-        onClick={onDismissAll}
-        text="Dismiss All"
-      />
-    </React.Fragment>
-  ) : (
-    <PostElementContainer key="empty-message">
-      <h3>No posts available</h3>
-    </PostElementContainer>
+function PostList({
+  status,
+  posts,
+  onSelect,
+  onPaginate,
+  onDismiss,
+  onDismissAll,
+}: Props) {
+  const loader = useRef<HTMLDivElement>(null);
+
+  const paginateCb = useCallback(
+    (entries) => {
+      const target = entries[0];
+
+      if (target.isIntersecting && status !== PostStatusEnum.LOADING) {
+        onPaginate();
+      }
+    },
+    [status, onPaginate]
   );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(paginateCb, {
+      root: null,
+      rootMargin: "10px",
+      threshold: 0.75,
+    });
+
+    if (loader?.current) observer.observe(loader.current);
+
+    return () => {
+      if (loader?.current) observer.unobserve(loader.current);
+    };
+  }, [loader, paginateCb]);
 
   return (
     <PostListContainer>
-      {status === PostStatusEnum.LOADING ? <Loader /> : PostListElements}
+      {status === PostStatusEnum.LOADING || posts.length ? (
+        <React.Fragment>
+          <TransitionGroup>
+            {posts.map((post) => (
+              <CSSTransition key={post.id} timeout={200} classNames="post">
+                <CSSTransition
+                  in={post.isRead}
+                  timeout={300}
+                  classNames="post-read"
+                >
+                  <PostElement
+                    data={post}
+                    onSelect={onSelect}
+                    onDismiss={onDismiss}
+                  />
+                </CSSTransition>
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
+          <Loader isVisible={status === PostStatusEnum.LOADING} ref={loader} />
+          <IconButton
+            key="dismiss-all"
+            className="is-fullwidth"
+            css={css`
+              position: sticky;
+              bottom: 15px;
+            `}
+            onClick={onDismissAll}
+            text="Dismiss All"
+          />
+        </React.Fragment>
+      ) : (
+        <PostElementContainer key="empty-message">
+          <h3>No posts available</h3>
+        </PostElementContainer>
+      )}
     </PostListContainer>
   );
 }

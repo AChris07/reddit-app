@@ -1,9 +1,13 @@
 export interface RedditListingResponseInterface {
   kind: string;
-  data: {
-    modhash: string;
-    children: RedditListingInterface[];
-  };
+  data: RedditListingDataInterface;
+}
+
+export interface RedditListingDataInterface {
+  modhash: string;
+  dist: number;
+  children: RedditListingInterface[];
+  after: string;
 }
 
 export interface RedditListingInterface {

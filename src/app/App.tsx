@@ -14,12 +14,15 @@ import PostList from "../features/posts/PostList";
 import PostDetails from "../features/posts/PostDetails";
 import {
   fetchTopPosts,
+  fetchInitialPosts,
   selectPost,
   dismissPost,
   dismissAll,
   getPosts,
   getPostStatus,
   getPostSelected,
+  getOffset,
+  getNextToken,
 } from "../features/posts/postsSlice";
 
 function App() {
@@ -28,9 +31,11 @@ function App() {
   const posts = useAppSelector(getPosts);
   const status = useAppSelector(getPostStatus);
   const selected = useAppSelector(getPostSelected);
+  const offset = useAppSelector(getOffset);
+  const nextToken = useAppSelector(getNextToken);
 
   useEffect(() => {
-    dispatch(fetchTopPosts());
+    dispatch(fetchInitialPosts());
   }, []);
 
   return (
@@ -53,6 +58,7 @@ function App() {
             status={status}
             posts={posts}
             onSelect={(id: string) => dispatch(selectPost(id))}
+            onPaginate={() => dispatch(fetchTopPosts({ offset, nextToken }))}
             onDismiss={(id: string) => dispatch(dismissPost(id))}
             onDismissAll={() => dispatch(dismissAll())}
           />

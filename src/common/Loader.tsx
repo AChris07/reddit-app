@@ -1,10 +1,10 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import { jsx, css, withTheme, Theme } from "@emotion/react";
 
-const loaderCss = (theme: Theme) => css`
-  display: inline-block;
+const loaderCss = (isVisible: boolean, theme: Theme) => css`
+  display: ${isVisible ? "inline-block" : "none"};
   position: relative;
   width: 80px;
   height: 80px;
@@ -44,19 +44,24 @@ const loaderCss = (theme: Theme) => css`
   }
 `;
 
-export type Props = {
+export interface Props extends HTMLAttributes<HTMLElement> {
+  isVisible: boolean;
   theme: Theme;
-};
-
-function Loader({ theme }: Props) {
-  return (
-    <div css={loaderCss(theme)}>
-      <div />
-      <div />
-      <div />
-      <div />
-    </div>
-  );
 }
+
+export type Ref = HTMLDivElement;
+
+const Loader = React.forwardRef<Ref, Props>(
+  ({ isVisible, theme }: Props, ref) => (
+    <div ref={ref}>
+      <div css={loaderCss(isVisible, theme)}>
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  )
+);
 
 export default withTheme(Loader);

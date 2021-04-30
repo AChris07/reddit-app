@@ -1,16 +1,24 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
 import { PostStatusEnum, Post } from "../../types/posts";
 import getTopPosts from "../../api/reddit";
-import { RootState } from "../../app/store";
+import { AppThunk, RootState } from "../../app/store";
 
 export interface PostsState {
   status: PostStatusEnum;
+  nextToken?: string;
   entities: Record<string, Post>;
   ids: string[];
   selectedId?: string;
 }
 
+interface FetchPostsRequest {
+  offset: number;
+  nextToken?: string;
+}
+
 interface FetchPostsPayload {
+  after: string;
   entities: Record<string, Post>;
   ids: string[];
 }
@@ -24,16 +32,25 @@ const initialState: PostsState = {
 
 export const fetchTopPosts = createAsyncThunk(
   "posts/fetchTop",
-  async (): Promise<FetchPostsPayload> => {
-    const response = await getTopPosts();
+  async ({
+    offset = 0,
+    nextToken,
+  }: FetchPostsRequest): Promise<FetchPostsPayload> => {
+    const response = await getTopPosts(offset, nextToken);
 
-    const payload: FetchPostsPayload = { entities: {}, ids: [] };
-    return response.reduce(
-      (acc, { data }) => ({
+    const payload: FetchPostsPayload = {
+      after: response.after,
+      entities: {},
+      ids: [],
+    };
+    return response.children.reduce((acc, { data }) => {
+      const uuid = nanoid();
+      return {
+        ...acc,
         entities: {
           ...acc.entities,
-          [data.id]: {
-            id: data.id,
+          [uuid]: {
+            id: uuid,
             title: data.title,
             thumbnail: data.thumbnail,
             author: data.author,
@@ -42,10 +59,9 @@ export const fetchTopPosts = createAsyncThunk(
             isRead: false,
           },
         },
-        ids: [...acc.ids, data.id],
-      }),
-      payload
-    );
+        ids: [...acc.ids, uuid],
+      };
+    }, payload);
   }
 );
 
@@ -75,8 +91,12 @@ export const postsSlice = createSlice({
         fetchTopPosts.fulfilled,
         (state, action: PayloadAction<FetchPostsPayload>) => {
           state.status = PostStatusEnum.IDLE;
-          state.entities = action.payload.entities;
-          state.ids = action.payload.ids;
+          state.nextToken = action.payload.after;
+          state.entities = {
+            ...state.entities,
+            ...action.payload.entities,
+          };
+          state.ids = [...state.ids, ...action.payload.ids];
         }
       )
       .addCase(fetchTopPosts.rejected, (state) => {
@@ -87,6 +107,11 @@ export const postsSlice = createSlice({
 
 export const { selectPost, dismissPost, dismissAll } = postsSlice.actions;
 
+export const fetchInitialPosts = (): AppThunk => (dispatch) => {
+  dispatch(dismissAll());
+  dispatch(fetchTopPosts({ offset: 0 }));
+};
+
 export const getPostStatus = (state: RootState) => state.posts.status;
 export const getPosts = (state: RootState) => {
   const { ids, entities } = state.posts;
@@ -96,6 +121,14 @@ export const getPostSelected = (state: RootState) => {
   const { selectedId, entities } = state.posts;
   if (selectedId === undefined) return undefined;
   return entities[selectedId];
+};
+export const getOffset = (state: RootState) => {
+  const { ids } = state.posts;
+  return ids.length;
+};
+export const getNextToken = (state: RootState) => {
+  const { nextToken } = state.posts;
+  return nextToken;
 };
 
 export default postsSlice.reducer;
