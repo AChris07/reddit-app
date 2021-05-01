@@ -1,44 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Reddit App
 
-## Available Scripts
+This project is a small demo app to pull top posts from Reddit, display them, and allow them to be dismissed.
 
-In the project directory, you can run:
+## Stack used
+  - Create React App
+  - React
+  - Redux Toolkit
+  - Typescript
+  - Storybook
+  - Storyshots
 
-### `yarn start`
+## Why CRA?
+When I started with the development of the page, I decided to go with a SPA, easy-to-deploy page, so either though I'm not a huge fan of the CRA tooling
+(and the inflexibility - either you eject and handle a lot of overhead, or don't eject and end up limited in several ways), I erred for it vs something
+like Next.js, that even though allows generating SPAs, I think it's better served for larger web apps with server support. Also, CRA is easier to scaffold
+out of the box.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Then, I ended up creating a small server, so perhaps going with Next.js at once would have been a better idea.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Deployment
+To deploy, you first need to run `yarn build` to get the production-ready page to be deployed.
+After that, you just need to run `yarn start` to initiate a small Express server to serve the page.
 
-### `yarn test`
+### Why does this SPA come with an Express server to deploy it?
+This page is currently hosted on Heroku. Thus, a small server able to be started via script seemed the way to go for an easy
+way to serve a page. Also, the other main reason is to be able to implement oAuth for the Reddit API server-side: I'd rather not keep
+sensitive data clientside, even though it's a demo app.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Development
+It's as easy as running `yarn start:dev`. The app comes with a mocked response of the API for development.
+Run `yarn test` to run Unit tests.
 
-### `yarn build`
+## Documentation
+All the components are fairly self-explanatory, and are documented and displayed via Storybook.
+We also leverage Storybook's stories for Snapshot testing via Storyshots.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## TODO list:
+- [ ] Implement Dismiss All animation
+- [ ] Clean up the UI
+- [ ] Implement Visual Testing via Storyshots
+- [ ] Implement E2E tests
