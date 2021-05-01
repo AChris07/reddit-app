@@ -1,14 +1,12 @@
 {
   "extends": ["airbnb-typescript", "prettier"],
   "plugins": ["prettier"],
-  "ignorePatterns": ["serviceWorker.ts", "*.stories.tsx"],
+  "ignorePatterns": ["serviceWorker.ts", "setupTests.ts", "*.stories.tsx"],
   "rules": {
     "prettier/prettier": ["error"],
     "no-param-reassign": ["error", { props: true, ignorePropertyModificationsFor: ["state"] }],
     "import/no-cycle": ["off"],
-    "react/jsx-props-no-spreading": ["error", {
-        "html": "ignore",
-    }]
+    "react/jsx-props-no-spreading": ["warn"]
   },
   "parserOptions": {
     "project": ["tsconfig.json"]

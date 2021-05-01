@@ -10,4 +10,12 @@ export default {
 
 const Template: Story = (args) => <Loader {...args} />;
 
-export const Default = Template.bind({});
+export const Visible = Template.bind({});
+Visible.args = {
+  isVisible: true,
+};
+
+export const NotVisible = Template.bind({});
+NotVisible.args = {
+  isVisible: false,
+};

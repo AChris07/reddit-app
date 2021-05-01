@@ -6,6 +6,7 @@ import { AppThunk, RootState } from "../../app/store";
 
 export interface PostsState {
   status: PostStatusEnum;
+  offset: number;
   nextToken?: string;
   entities: Record<string, Post>;
   ids: string[];
@@ -17,14 +18,15 @@ interface FetchPostsRequest {
   nextToken?: string;
 }
 
-interface FetchPostsPayload {
+export interface FetchPostsPayload {
   after: string;
   entities: Record<string, Post>;
   ids: string[];
 }
 
-const initialState: PostsState = {
+export const initialState: PostsState = {
   status: PostStatusEnum.IDLE,
+  offset: 0,
   entities: {},
   ids: [],
   selectedId: undefined,
@@ -79,6 +81,7 @@ export const postsSlice = createSlice({
       state.ids = state.ids.filter((id) => id !== action.payload);
     },
     dismissAll: (state) => {
+      state.offset = 0;
       state.nextToken = undefined;
       state.ids = [];
     },
@@ -92,6 +95,7 @@ export const postsSlice = createSlice({
         fetchTopPosts.fulfilled,
         (state, action: PayloadAction<FetchPostsPayload>) => {
           state.status = PostStatusEnum.IDLE;
+          state.offset += action.payload.ids.length;
           state.nextToken = action.payload.after;
           state.entities = {
             ...state.entities,
@@ -124,8 +128,8 @@ export const getPostSelected = (state: RootState) => {
   return entities[selectedId];
 };
 export const getOffset = (state: RootState) => {
-  const { ids } = state.posts;
-  return ids.length;
+  const { offset } = state.posts;
+  return offset;
 };
 export const getNextToken = (state: RootState) => {
   const { nextToken } = state.posts;

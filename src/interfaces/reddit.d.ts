@@ -45,7 +45,7 @@ export interface RedditPostInterface {
   name: string;
   permalink: string;
   stickied: boolean;
-  created: boolean;
+  created: number;
   url: string;
   author_flair_text: string | null;
   title: string;

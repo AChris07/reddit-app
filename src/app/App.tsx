@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React, { useEffect } from "react";
+import React from "react";
 import { jsx, css } from "@emotion/react";
 import config from "../config";
 import {
@@ -35,7 +35,7 @@ function App() {
   const offset = useAppSelector(getOffset);
   const nextToken = useAppSelector(getNextToken);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!posts.length) {
       dispatch(fetchInitialPosts());
     }

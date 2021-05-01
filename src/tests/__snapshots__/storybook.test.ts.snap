@@ -1,0 +1,1372 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots App Default 1`] = `
+.emotion-0 {
+  background-color: #030303;
+  color: #D7DADC;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.emotion-1 {
+  background-color: #1A1A1B;
+  border: 1.5px solid #A2A5A8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+  margin-bottom: 1em;
+  min-height: 10vh;
+}
+
+.emotion-2 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+}
+
+.emotion-2:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+.emotion-3 {
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  margin-top: 0;
+}
+
+.emotion-5 {
+  background-color: #1A1A1B;
+  color: #D7DADC;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.emotion-6 {
+  height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #FFA701 #1A1A1B;
+}
+
+.emotion-6::-webkit-scrollbar {
+  width: 12px;
+}
+
+.emotion-6::-webkit-scrollbar-track {
+  background: #1A1A1B;
+}
+
+.emotion-6::-webkit-scrollbar-thumb {
+  background-color: #FFA701;
+  border-radius: 20px;
+}
+
+.emotion-7 {
+  list-style: none;
+  background-color: #030303;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.emotion-8 {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.emotion-8 div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #FFA701 transparent transparent transparent;
+}
+
+.emotion-8 div:nth-of-type(1) {
+  -webkit-animation-delay: -0.45s;
+  animation-delay: -0.45s;
+}
+
+.emotion-8 div:nth-of-type(2) {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.emotion-8 div:nth-of-type(3) {
+  -webkit-animation-delay: -0.15s;
+  animation-delay: -0.15s;
+}
+
+.emotion-9 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 15px;
+}
+
+.emotion-9:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+<div
+  className="emotion-0"
+>
+  <header
+    className="emotion-1"
+  >
+    <h1>
+      Reddit app
+    </h1>
+    <button
+      className="button  emotion-2"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="icon"
+      >
+        <i
+          className="fas fa-redo"
+        />
+      </span>
+    </button>
+  </header>
+  <div
+    className="columns is-desktop emotion-3"
+  >
+    <section
+      className="column emotion-4"
+    >
+      <section
+        className="emotion-5"
+      >
+        <h3>
+          Please select a post
+        </h3>
+      </section>
+    </section>
+    <section
+      className="column is-one-third emotion-6"
+    >
+      <ul
+        className="emotion-7"
+      >
+        <div />
+        <div>
+          <div
+            className="emotion-8"
+          >
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </div>
+        <button
+          className="button is-fullwidth emotion-9"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            Dismiss All
+          </span>
+        </button>
+      </ul>
+    </section>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common/IconButton Icon 1`] = `
+.emotion-0 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+}
+
+.emotion-0:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+<button
+  className="button  emotion-0"
+  type="button"
+>
+  <span
+    className="icon"
+  >
+    <i
+      className="fas fa-times-circle"
+    />
+  </span>
+  <span>
+    Mock Text
+  </span>
+</button>
+`;
+
+exports[`Storyshots Common/IconButton Icon With Text 1`] = `
+.emotion-0 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+}
+
+.emotion-0:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+<button
+  className="button  emotion-0"
+  type="button"
+>
+  <span
+    className="icon"
+  >
+    <i
+      className="fas fa-home"
+    />
+  </span>
+</button>
+`;
+
+exports[`Storyshots Common/IconButton Just Text 1`] = `
+.emotion-0 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+}
+
+.emotion-0:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+<button
+  className="button  emotion-0"
+  type="button"
+>
+  <span>
+    Mock Text
+  </span>
+</button>
+`;
+
+exports[`Storyshots Common/Loader Not Visible 1`] = `
+.emotion-0 {
+  display: none;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.emotion-0 div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #FFA701 transparent transparent transparent;
+}
+
+.emotion-0 div:nth-of-type(1) {
+  -webkit-animation-delay: -0.45s;
+  animation-delay: -0.45s;
+}
+
+.emotion-0 div:nth-of-type(2) {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.emotion-0 div:nth-of-type(3) {
+  -webkit-animation-delay: -0.15s;
+  animation-delay: -0.15s;
+}
+
+<div>
+  <div
+    className="emotion-0"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common/Loader Visible 1`] = `
+.emotion-0 {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.emotion-0 div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #FFA701 transparent transparent transparent;
+}
+
+.emotion-0 div:nth-of-type(1) {
+  -webkit-animation-delay: -0.45s;
+  animation-delay: -0.45s;
+}
+
+.emotion-0 div:nth-of-type(2) {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.emotion-0 div:nth-of-type(3) {
+  -webkit-animation-delay: -0.15s;
+  animation-delay: -0.15s;
+}
+
+<div>
+  <div
+    className="emotion-0"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common/UnreadIcon Default 1`] = `
+<span
+  className="icon has-text-info"
+>
+  <i
+    className="fas fa-circle"
+  />
+</span>
+`;
+
+exports[`Storyshots Components/DetailsPost Selected Post 1`] = `
+.emotion-0 {
+  background-color: #1A1A1B;
+  color: #D7DADC;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.emotion-1 {
+  margin-bottom: 1.5em;
+}
+
+.emotion-2 {
+  margin-bottom: 15px;
+}
+
+.emotion-3 {
+  margin-left: 0.5em;
+}
+
+<section
+  className="emotion-0"
+>
+  <h3
+    className="emotion-1"
+  >
+    Selected Post
+  </h3>
+  <h2
+    className="emotion-2"
+  >
+    Mock Author
+  </h2>
+  <img
+    alt=""
+    src="https://picsum.photos/200"
+  />
+  <h4
+    className="emotion-3"
+  >
+    Mock Post
+  </h4>
+</section>
+`;
+
+exports[`Storyshots Components/DetailsPost Without Selection 1`] = `
+.emotion-0 {
+  background-color: #1A1A1B;
+  color: #D7DADC;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+<section
+  className="emotion-0"
+>
+  <h3>
+    Please select a post
+  </h3>
+</section>
+`;
+
+exports[`Storyshots Components/PostList Empty State 1`] = `
+@keyframes animation-0 {
+  from {
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+  }
+
+  25% {
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+    -webkit-filter: brightness(120%);
+  }
+
+  to {
+    -webkit-filter: brightness(70%);
+    filter: brightness(70%);
+    -webkit-filter: brightness(70%);
+  }
+}
+
+.emotion-0 {
+  list-style: none;
+  background-color: #030303;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.emotion-1 {
+  background-color: #1A1A1B;
+  color: #D7DADC;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.emotion-1.post-exit {
+  opacity: 1;
+  max-height: 500px;
+}
+
+.emotion-1.post-exit-active {
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
+  margin-bottom: 0;
+  -webkit-transition: max-height 200ms,opacity 200ms ease-in,padding 200ms,margin-bottom 200ms;
+  transition: max-height 200ms,opacity 200ms ease-in,padding 200ms,margin-bottom 200ms;
+}
+
+.emotion-1.post-read-enter {
+  -webkit-animation: animation-0 300ms ease-in-out;
+  animation: animation-0 300ms ease-in-out;
+}
+
+.emotion-1.post-read-enter-done {
+  -webkit-filter: brightness(70%);
+  filter: brightness(70%);
+}
+
+<ul
+  className="emotion-0"
+>
+  <li
+    className="emotion-1"
+  >
+    <h3>
+      No posts available
+    </h3>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Components/PostList Loaded State 1`] = `
+@keyframes animation-0 {
+  from {
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+  }
+
+  25% {
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+    -webkit-filter: brightness(120%);
+  }
+
+  to {
+    -webkit-filter: brightness(70%);
+    filter: brightness(70%);
+    -webkit-filter: brightness(70%);
+  }
+}
+
+.emotion-0 {
+  list-style: none;
+  background-color: #030303;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.emotion-1 {
+  background-color: #1A1A1B;
+  color: #D7DADC;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.emotion-1.post-exit {
+  opacity: 1;
+  max-height: 500px;
+}
+
+.emotion-1.post-exit-active {
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
+  margin-bottom: 0;
+  -webkit-transition: max-height 200ms,opacity 200ms ease-in,padding 200ms,margin-bottom 200ms;
+  transition: max-height 200ms,opacity 200ms ease-in,padding 200ms,margin-bottom 200ms;
+}
+
+.emotion-1.post-read-enter {
+  -webkit-animation: animation-0 300ms ease-in-out;
+  animation: animation-0 300ms ease-in-out;
+}
+
+.emotion-1.post-read-enter-done {
+  -webkit-filter: brightness(70%);
+  filter: brightness(70%);
+}
+
+.emotion-2 {
+  position: relative;
+}
+
+.emotion-3 {
+  margin-left: 0.5em;
+  margin-right: 1em;
+}
+
+.emotion-4 {
+  color: #A2A5A8;
+}
+
+.emotion-5 {
+  position: relative;
+  padding-right: 15px;
+}
+
+.emotion-5::after {
+  content: ">";
+  position: absolute;
+  top: 40%;
+  right: 15px;
+}
+
+.emotion-6 {
+  margin: auto;
+}
+
+.emotion-7 {
+  margin-left: 0.5em;
+}
+
+.emotion-8 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+.emotion-9 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+}
+
+.emotion-9:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+.emotion-10 {
+  color: #FFA701;
+}
+
+.emotion-31 {
+  display: none;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.emotion-31 div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #FFA701 transparent transparent transparent;
+}
+
+.emotion-31 div:nth-of-type(1) {
+  -webkit-animation-delay: -0.45s;
+  animation-delay: -0.45s;
+}
+
+.emotion-31 div:nth-of-type(2) {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.emotion-31 div:nth-of-type(3) {
+  -webkit-animation-delay: -0.15s;
+  animation-delay: -0.15s;
+}
+
+.emotion-32 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 15px;
+}
+
+.emotion-32:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+<ul
+  className="emotion-0"
+>
+  <div>
+    <li
+      className="emotion-1"
+      onClick={[Function]}
+    >
+      <header
+        className="columns is-desktop emotion-2"
+      >
+        <div
+          className="column is-inline-flex is-align-items-center"
+        >
+          <span
+            className="icon has-text-info"
+          >
+            <i
+              className="fas fa-circle"
+            />
+          </span>
+          <h2
+            className="emotion-3"
+          >
+            Mock Author 1
+          </h2>
+        </div>
+        <h3
+          className="column emotion-4"
+        >
+          6 days ago
+        </h3>
+      </header>
+      <section
+        className="columns is-desktop emotion-5"
+      >
+        <img
+          alt=""
+          className="column is-one-third emotion-6"
+          src="https://picsum.photos/200"
+        />
+        <h4
+          className="column emotion-7"
+        >
+          Mock Post 1
+        </h4>
+      </section>
+      <footer
+        className="emotion-8"
+      >
+        <button
+          className="button  emotion-9"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="icon"
+          >
+            <i
+              className="fas fa-times-circle"
+            />
+          </span>
+          <span>
+            Dismiss Post
+          </span>
+        </button>
+        <span
+          className="emotion-10"
+        >
+          100
+           comments
+        </span>
+      </footer>
+    </li>
+    <li
+      className="emotion-1"
+      onClick={[Function]}
+    >
+      <header
+        className="columns is-desktop emotion-2"
+      >
+        <div
+          className="column is-inline-flex is-align-items-center"
+        >
+          <span
+            className="icon has-text-info"
+          >
+            <i
+              className="fas fa-circle"
+            />
+          </span>
+          <h2
+            className="emotion-3"
+          >
+            Mock Author 2
+          </h2>
+        </div>
+        <h3
+          className="column emotion-4"
+        >
+          6 days ago
+        </h3>
+      </header>
+      <section
+        className="columns is-desktop emotion-5"
+      >
+        <img
+          alt=""
+          className="column is-one-third emotion-6"
+          src="https://picsum.photos/200"
+        />
+        <h4
+          className="column emotion-7"
+        >
+          Mock Post 2
+        </h4>
+      </section>
+      <footer
+        className="emotion-8"
+      >
+        <button
+          className="button  emotion-9"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="icon"
+          >
+            <i
+              className="fas fa-times-circle"
+            />
+          </span>
+          <span>
+            Dismiss Post
+          </span>
+        </button>
+        <span
+          className="emotion-10"
+        >
+          200
+           comments
+        </span>
+      </footer>
+    </li>
+    <li
+      className="emotion-1"
+      onClick={[Function]}
+    >
+      <header
+        className="columns is-desktop emotion-2"
+      >
+        <div
+          className="column is-inline-flex is-align-items-center"
+        >
+          <span
+            className="icon has-text-info"
+          >
+            <i
+              className="fas fa-circle"
+            />
+          </span>
+          <h2
+            className="emotion-3"
+          >
+            Mock Author 3
+          </h2>
+        </div>
+        <h3
+          className="column emotion-4"
+        >
+          6 days ago
+        </h3>
+      </header>
+      <section
+        className="columns is-desktop emotion-5"
+      >
+        <img
+          alt=""
+          className="column is-one-third emotion-6"
+          src="https://picsum.photos/200"
+        />
+        <h4
+          className="column emotion-7"
+        >
+          Mock Post 3
+        </h4>
+      </section>
+      <footer
+        className="emotion-8"
+      >
+        <button
+          className="button  emotion-9"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="icon"
+          >
+            <i
+              className="fas fa-times-circle"
+            />
+          </span>
+          <span>
+            Dismiss Post
+          </span>
+        </button>
+        <span
+          className="emotion-10"
+        >
+          300
+           comments
+        </span>
+      </footer>
+    </li>
+  </div>
+  <div>
+    <div
+      className="emotion-31"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+  <button
+    className="button is-fullwidth emotion-32"
+    type="button"
+  >
+    <span>
+      Dismiss All
+    </span>
+  </button>
+</ul>
+`;
+
+exports[`Storyshots Components/PostList Loading State 1`] = `
+.emotion-0 {
+  list-style: none;
+  background-color: #030303;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.emotion-1 {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.emotion-1 div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #FFA701 transparent transparent transparent;
+}
+
+.emotion-1 div:nth-of-type(1) {
+  -webkit-animation-delay: -0.45s;
+  animation-delay: -0.45s;
+}
+
+.emotion-1 div:nth-of-type(2) {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.emotion-1 div:nth-of-type(3) {
+  -webkit-animation-delay: -0.15s;
+  animation-delay: -0.15s;
+}
+
+.emotion-2 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 15px;
+}
+
+.emotion-2:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+<ul
+  className="emotion-0"
+>
+  <div />
+  <div>
+    <div
+      className="emotion-1"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+  <button
+    className="button is-fullwidth emotion-2"
+    type="button"
+  >
+    <span>
+      Dismiss All
+    </span>
+  </button>
+</ul>
+`;
+
+exports[`Storyshots Components/PostList Read Post State 1`] = `
+@keyframes animation-0 {
+  from {
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+  }
+
+  25% {
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+    -webkit-filter: brightness(120%);
+  }
+
+  to {
+    -webkit-filter: brightness(70%);
+    filter: brightness(70%);
+    -webkit-filter: brightness(70%);
+  }
+}
+
+.emotion-0 {
+  list-style: none;
+  background-color: #030303;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.emotion-1 {
+  background-color: #1A1A1B;
+  color: #D7DADC;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.emotion-1.post-exit {
+  opacity: 1;
+  max-height: 500px;
+}
+
+.emotion-1.post-exit-active {
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
+  margin-bottom: 0;
+  -webkit-transition: max-height 200ms,opacity 200ms ease-in,padding 200ms,margin-bottom 200ms;
+  transition: max-height 200ms,opacity 200ms ease-in,padding 200ms,margin-bottom 200ms;
+}
+
+.emotion-1.post-read-enter {
+  -webkit-animation: animation-0 300ms ease-in-out;
+  animation: animation-0 300ms ease-in-out;
+}
+
+.emotion-1.post-read-enter-done {
+  -webkit-filter: brightness(70%);
+  filter: brightness(70%);
+}
+
+.emotion-2 {
+  position: relative;
+}
+
+.emotion-3 {
+  margin-left: 0.5em;
+  margin-right: 1em;
+}
+
+.emotion-4 {
+  color: #A2A5A8;
+}
+
+.emotion-5 {
+  position: relative;
+  padding-right: 15px;
+}
+
+.emotion-5::after {
+  content: ">";
+  position: absolute;
+  top: 40%;
+  right: 15px;
+}
+
+.emotion-6 {
+  margin: auto;
+}
+
+.emotion-7 {
+  margin-left: 0.5em;
+}
+
+.emotion-8 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+.emotion-9 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+}
+
+.emotion-9:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+.emotion-10 {
+  color: #FFA701;
+}
+
+.emotion-21 {
+  display: none;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.emotion-21 div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #FFA701 transparent transparent transparent;
+}
+
+.emotion-21 div:nth-of-type(1) {
+  -webkit-animation-delay: -0.45s;
+  animation-delay: -0.45s;
+}
+
+.emotion-21 div:nth-of-type(2) {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.emotion-21 div:nth-of-type(3) {
+  -webkit-animation-delay: -0.15s;
+  animation-delay: -0.15s;
+}
+
+.emotion-22 {
+  background-color: #1A1A1B;
+  color: #FFA701;
+  border: none;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 15px;
+}
+
+.emotion-22:hover {
+  background-color: #5E5E5F;
+  color: #FFA701;
+}
+
+<ul
+  className="emotion-0"
+>
+  <div>
+    <li
+      className="emotion-1"
+      onClick={[Function]}
+    >
+      <header
+        className="columns is-desktop emotion-2"
+      >
+        <div
+          className="column is-inline-flex is-align-items-center"
+        >
+          <span
+            className="icon has-text-info"
+          >
+            <i
+              className="fas fa-circle"
+            />
+          </span>
+          <h2
+            className="emotion-3"
+          >
+            Mock Author 1
+          </h2>
+        </div>
+        <h3
+          className="column emotion-4"
+        >
+          6 days ago
+        </h3>
+      </header>
+      <section
+        className="columns is-desktop emotion-5"
+      >
+        <img
+          alt=""
+          className="column is-one-third emotion-6"
+          src="https://picsum.photos/200"
+        />
+        <h4
+          className="column emotion-7"
+        >
+          Mock Post 1
+        </h4>
+      </section>
+      <footer
+        className="emotion-8"
+      >
+        <button
+          className="button  emotion-9"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="icon"
+          >
+            <i
+              className="fas fa-times-circle"
+            />
+          </span>
+          <span>
+            Dismiss Post
+          </span>
+        </button>
+        <span
+          className="emotion-10"
+        >
+          100
+           comments
+        </span>
+      </footer>
+    </li>
+    <li
+      className="emotion-1"
+      onClick={[Function]}
+    >
+      <header
+        className="columns is-desktop emotion-2"
+      >
+        <div
+          className="column is-inline-flex is-align-items-center"
+        >
+          <span
+            className="icon has-text-info"
+          >
+            <i
+              className="fas fa-circle"
+            />
+          </span>
+          <h2
+            className="emotion-3"
+          >
+            Mock Author 2
+          </h2>
+        </div>
+        <h3
+          className="column emotion-4"
+        >
+          6 days ago
+        </h3>
+      </header>
+      <section
+        className="columns is-desktop emotion-5"
+      >
+        <img
+          alt=""
+          className="column is-one-third emotion-6"
+          src="https://picsum.photos/200"
+        />
+        <h4
+          className="column emotion-7"
+        >
+          Mock Post 2
+        </h4>
+      </section>
+      <footer
+        className="emotion-8"
+      >
+        <button
+          className="button  emotion-9"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="icon"
+          >
+            <i
+              className="fas fa-times-circle"
+            />
+          </span>
+          <span>
+            Dismiss Post
+          </span>
+        </button>
+        <span
+          className="emotion-10"
+        >
+          200
+           comments
+        </span>
+      </footer>
+    </li>
+  </div>
+  <div>
+    <div
+      className="emotion-21"
+    >
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+  <button
+    className="button is-fullwidth emotion-22"
+    type="button"
+  >
+    <span>
+      Dismiss All
+    </span>
+  </button>
+</ul>
+`;
